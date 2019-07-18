@@ -1,15 +1,22 @@
-const parentDiv = document.querySelector('div');
+const parentDiv = document.querySelector('#parent-div');
 
 function createDiv(gridSize) {
-  let gridRow = (500 / gridSize);
+  let gridRow = (800 / gridSize);
   let gridBox = gridRow - 2;
-  console.log(gridBox);
   for(let i = 0; i < gridSize * gridSize; i++) {
     let newDiv = document.createElement('div');
     newDiv.style.width = `${gridBox}px`;
-    newDiv.style.height = `${gridBox}px`;
     parentDiv.appendChild(newDiv);
   }
+
+  let square = parentDiv.querySelectorAll('div');
+
+  document.addEventListener('mouseover', function(e) {
+    if(e.target.tagName === "DIV" && e.target.id != "#parent-div") {
+      e.target.classList.toggle('square');
+    }
+  });
 }
 
-createDiv(8);
+createDiv(16);
+
