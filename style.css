@@ -1,0 +1,14 @@
+body {
+  box-sizing: border-box;
+}
+
+div {
+  border: 1px solid #000;
+  flex-wrap: wrap;
+}
+
+#parent-div {
+  display: flex;
+  width: 500px;
+  height: 500px;
+}
