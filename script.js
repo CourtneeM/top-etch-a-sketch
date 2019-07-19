@@ -9,7 +9,7 @@ function createDiv(gridSize) {
     };
   }
 
-  let gridRow = (800 / gridSize);
+  let gridRow = (700 / gridSize);
   let gridBox = gridRow - 2;
   for(let i = 0; i < gridSize * gridSize; i++) {
     let newDiv = document.createElement('div');
