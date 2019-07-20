@@ -1,12 +1,12 @@
 const parentDiv = document.querySelector('#parent-div');
 var optionsUl = document.querySelector('#options-menu');
-var gridColor = "rgb(0,0,0)";
-
+var gridColor = "rgba(0,0,0,1)";
+var alpha = 0.1;
 
 function createDiv(gridSize) {
-  console.log(gridColor);
-  if(isNaN(gridSize)) {
-    while(isNaN(gridSize)) {
+  console.log(gridSize);
+  if(gridSize === 0 || isNaN(gridSize)) {
+    while(gridSize === 0 || isNaN(gridSize)) {
       gridSize = Number(prompt("Please choose a number for the grid size. Between 1 and 50 is recommended."));
     };
   }
@@ -23,8 +23,6 @@ function createDiv(gridSize) {
   fillGrid();
 }
 
-
-
 function fillGrid() {
   document.addEventListener('mouseover', function(e) {
     if(e.target.className === "grid") {
@@ -35,6 +33,13 @@ function fillGrid() {
       let randomBlue = Math.floor(Math.random() * 256);
       gridColor = `rgb(${randomRed},${randomGreen},${randomBlue})`;
       e.target.style.backgroundColor = gridColor
+    } else if (e.target.className === "grid grayscale") {
+      e.target.style.backgroundColor = `rgba(0,0,0,${alpha}`;
+      if(alpha < 1) {
+        alpha += 0.1;
+      } else {
+        alpha = 0.1;
+      }
     }
   });
 }
@@ -60,8 +65,14 @@ function clickEventListeners() {
         parentDiv.children[i].className = "grid";
       }
     } else if(e.target.id === "grayscale") {
+      for(let i = 0; i < numChildren; i++) {
+        parentDiv.children[i].className = "grid";
+        parentDiv.children[i].classList.add("grayscale");
+        e.target.style.backgroundColor = "rgba(0,0,0,0)";
+      }
     } else if (e.target.id === "rgb") {
       for(let i = 0; i < numChildren; i++) {
+        parentDiv.children[i].className = "grid";
         parentDiv.children[i].classList.add('rgb');
       }
     }
@@ -72,4 +83,4 @@ function clickEventListeners() {
 createDiv(4);
 clickEventListeners();
 
-// add color | shading options
+// add grayscale options
