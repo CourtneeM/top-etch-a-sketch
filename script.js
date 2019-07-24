@@ -1,3 +1,6 @@
+const mqTablet = window.matchMedia('(max-width: 1024px');
+const mqLgPhone = window.matchMedia('(max-width: 700px)');
+const mqSmPhone = window.matchMedia('(max-width: 470px)');
 const parentDiv = document.querySelector('#parent-div');
 var optionsUl = document.querySelector('#options-menu');
 var gridColor = "rgba(0,0,0,1)";
@@ -11,8 +14,22 @@ function createDiv(gridSize) {
     };
   }
 
-  let gridRow = (700 / gridSize);
-  let gridBox = gridRow - 2;
+  let gridRow;
+  let gridBox;
+  if(mqSmPhone.matches) {
+    gridRow = (250 / gridSize);
+    gridBox = gridRow - 2;
+  } else if(mqLgPhone.matches) {
+    gridRow = (300 / gridSize);
+    gridBox = gridRow - 2;
+  } else if(mqTablet.matches) {
+    gridRow = (415 / gridSize);
+    gridBox = gridRow - 2; 
+  } else {
+    gridRow = (700 / gridSize);
+    gridBox = gridRow - 2;
+  }
+  
   for(let i = 0; i < gridSize * gridSize; i++) {
     let newDiv = document.createElement('div');
     newDiv.classList.add('grid');
@@ -37,9 +54,12 @@ function fillGrid() {
       e.target.style.backgroundColor = `rgba(0,0,0,${alpha}`;
       if(alpha < 1) {
         alpha += 0.1;
+        console.log(alpha);
       } else {
         alpha = 0.1;
+        console.log(alpha);
       }
+      console.log(alpha);
     }
   });
 }
@@ -82,5 +102,3 @@ function clickEventListeners() {
 
 createDiv(4);
 clickEventListeners();
-
-// add grayscale options
