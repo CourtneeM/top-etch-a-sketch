@@ -1,4 +1,4 @@
-const mqTablet = window.matchMedia('(max-width: 1024px');
+const mqTablet = window.matchMedia('(max-width: 1400px');
 const mqLgPhone = window.matchMedia('(max-width: 700px)');
 const mqSmPhone = window.matchMedia('(max-width: 470px)');
 const parentDiv = document.querySelector('#parent-div');
