@@ -57,8 +57,8 @@ ul li {
 
 #parent-div {
   display: flex;
-  width: 700px;
-  height: 700px;
+  width: 550px;
+  height: 550px;
   background-color: #fff;
 }
 
@@ -92,7 +92,7 @@ ul li {
   right: 5px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   main {
     padding: 5px 75px;
   }
@@ -187,23 +187,23 @@ ul li {
   }
 
   main {
-    padding: 0 45px;
+    padding: 0 35px;
   }
 
   ul {
-    margin: 15px 15px 0;
+    margin: 18px 12px 0;
     padding: 0px;
-    width: 220px;
+    width: 175px;
   }
 
   ul li {
-    font-size: .9rem;
+    font-size: .7rem;
   }
 
   #parent-div {
     display: flex;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background-color: #fff;
   }
 
@@ -214,9 +214,9 @@ ul li {
   }
 
   .circle {
-    margin: 3px;
-    width: 45px;
-    height: 45px;
+    margin: 0 1px 5px;
+    width: 40px;
+    height: 40px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 50%;

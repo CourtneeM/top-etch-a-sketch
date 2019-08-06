@@ -17,7 +17,7 @@ function createDiv(gridSize) {
   let gridRow;
   let gridBox;
   if(mqSmPhone.matches) {
-    gridRow = (250 / gridSize);
+    gridRow = (200 / gridSize);
     gridBox = gridRow - 2;
   } else if(mqLgPhone.matches) {
     gridRow = (300 / gridSize);
@@ -26,7 +26,7 @@ function createDiv(gridSize) {
     gridRow = (415 / gridSize);
     gridBox = gridRow - 2; 
   } else {
-    gridRow = (700 / gridSize);
+    gridRow = (550 / gridSize);
     gridBox = gridRow - 2;
   }
   
