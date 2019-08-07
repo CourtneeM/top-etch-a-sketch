@@ -100,5 +100,5 @@ function clickEventListeners() {
 }
 
 
-createDiv(4);
+createDiv(16);
 clickEventListeners();
